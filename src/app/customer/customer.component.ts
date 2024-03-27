@@ -2,7 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomerService } from './customer.service';
-import { Customer } from './customer.mode';
+import { Customer } from './customer.model';
+declare var $: any;
+declare function showAddMsg():any; 
+declare function showEditMsg():any; 
+declare function showDeleteMsg():any; 
 
 @Component({
   selector: 'app-customer',
@@ -13,12 +17,13 @@ import { Customer } from './customer.mode';
 })
 export class CustomerComponent implements OnInit {
 
+
   constructor(private customerService:CustomerService) {  }
   ngOnInit(): void {
     this.getAllCustomer();
   }
 
-  newCustomer:Customer = {name:"rk",email:"rk@gmail.com",phoneNumber:"953623342",address:"Developer" };
+  newCustomer:Customer = {name:"Radhakrishnan",email:"rk@gmail.com",phoneNumber:"9524164090",address:"Chennai" };
   customers:Customer[] = [];
   editingCustomer:Customer|null=null;
   updatedCustomer:Customer={name:"",email:"",phoneNumber:"",address:"" };
@@ -28,8 +33,11 @@ export class CustomerComponent implements OnInit {
     this.customerService.createCustomer(this.newCustomer).subscribe((createdCustomer)=>{
       this.newCustomer = {name:"",email:"",phoneNumber:"",address:"" };
       this.customers.push(createdCustomer);
-      this.getAllCustomer();
+      //call js function
+      showAddMsg();
+
     });
+       
   }
 
   getAllCustomer()
@@ -57,7 +65,10 @@ export class CustomerComponent implements OnInit {
         {
          
           this.customers[index]=result;
-          //close edit
+          //call js function
+          showEditMsg();
+
+         //close edit
          this.cancelEdit();
         }
     
@@ -77,7 +88,8 @@ export class CustomerComponent implements OnInit {
       this.customerService.deleteCustomer(empId).subscribe((result)=>
       {
         this.customers =   this.customers.filter((emp)=>emp.id!==empId);
-      
+        //call js function
+        showDeleteMsg();
 
       });
   }

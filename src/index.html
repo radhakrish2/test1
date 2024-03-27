@@ -15,6 +15,35 @@
   <style>
     </style>
   <script>
+
+function showAddMsg()
+{
+        $('#addEmployeeModal').modal('hide');
+        $("#myalert").text("Employee Added Successfully!")
+        $("#myalert").slideDown(500,function(){
+          $("#myalert").slideUp(2000);
+        });
+}
+
+function showEditMsg()
+{
+      $('#editEmployeeModal').modal('hide');
+        $("#myalert").text("Employee Edited Successfully!")
+        $("#myalert").slideDown(500,function(){
+          $("#myalert").slideUp(2000);
+        });
+}
+
+function showDeleteMsg()
+{
+      $('#deleteEmployeeModal').modal('hide');
+        $("#myalert").text("Employee Deleted Successfully!")
+        $("#myalert").slideDown(500,function(){
+          $("#myalert").slideUp(2000);
+        });
+}
+
+
  
   $(document).ready(function(){
     // Activate tooltip
@@ -40,13 +69,7 @@
     });
 
 
-    $('#editBtn').click(function() {
-        $('#editEmployeeModal').modal('hide');
-        $("#myalert").slideDown(1000,function(){
-          $("#myalert").slideUp(2000);
-        });
-    });
-
+   /*
 
     $('#addBtn').click(function() {
         $('#addEmployeeModal').modal('hide');
@@ -56,8 +79,13 @@
         });
     });
 
-    
-
+    $('#editBtn').click(function() {
+        $('#editEmployeeModal').modal('hide');
+        $("#myalert").text("Employee Edited Successfully!")
+        $("#myalert").slideDown(1000,function(){
+          $("#myalert").slideUp(2000);
+        });
+    });
 
     $('#deleteBtn').click(function() {
         $('#deleteEmployeeModal').modal('hide');
@@ -67,7 +95,7 @@
         });
     });
 
-
+    */
 
   });
 
