@@ -6,5 +6,6 @@ public class Program
         //welcome
         //command2
         System.out.println("Welcome to Java");
+        System.out.println("Welcome to Java2");
     }
 }
