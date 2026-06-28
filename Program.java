@@ -7,5 +7,7 @@ public class Program
         //command2
         System.out.println("Welcome to Java");
         System.out.println("Welcome to Java2");
+        System.out.println("Welcome to Java3");
+        
     }
 }
